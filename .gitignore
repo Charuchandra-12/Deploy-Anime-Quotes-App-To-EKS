@@ -1,0 +1,4 @@
+node_modules/
+EKS_Terraform/.terraform
+EKS_Terraform/.terraform.lock.hcl
+EKS_Terraform/ssh-key.pem

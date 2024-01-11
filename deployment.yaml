@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anime-quotes-app-deployment
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: anime-quotes-app
+  template:
+    metadata:
+      labels:
+        app: anime-quotes-app
+    spec:
+      containers:
+        - name: anime-quotes-app-container
+          image: chinmaykubal/animequotesapp:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anime-quotes-app-service
+  namespace: gke-gcp-devops-prod
+spec:
+  selector:
+    app: anime-quotes-app
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 3000
