@@ -4,7 +4,7 @@ node_modules/
 Terraform/
 todolist.txt
 README.md
-cloudbuild.yaml
 deployment.yaml
 LICENSE
-EKS_Terraform
+EKS_Terraform/
+.github/
