@@ -31,7 +31,9 @@ metadata:
 spec:
   selector:
     app: anime-quotes-app
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
       targetPort: 3000
+# aws eks --region us-east-2 update-kubeconfig --name Anime_Quotes_App_EKS
+# cat .kube/config | base64
