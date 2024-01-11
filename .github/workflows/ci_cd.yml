@@ -7,8 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build the Docker image
+      - name: Checkout Repo
         uses: actions/checkout@v3
+
+      - name: Build the Docker image
         run: docker build -t chinmaykubal/animequotesapp:latest .
 
       - name: Login to Docker Hub
