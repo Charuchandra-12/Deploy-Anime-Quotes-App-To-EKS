@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = '<YOUR_PROJECT_ID>'
-        CLUSTER_NAME = '<YOUR_CLUSTER_NAME>'
-        LOCATION = '<YOUR_CLUSTER_LOCATION>'
-        CREDENTIALS_ID = '<YOUR_CREDENTIAS_ID>'
+        PROJECT_ID = 'crucial-bucksaw-407710'
+        CLUSTER_NAME = 'aqpgkecluster'
+        LOCATION = 'us-central1-c'
+        CREDENTIALS_ID = 'CREDENTIALS_ID'
     }
    
     stages {
