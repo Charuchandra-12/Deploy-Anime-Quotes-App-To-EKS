@@ -4,7 +4,7 @@ pipeline {
         PROJECT_ID = 'crucial-bucksaw-407710'
         CLUSTER_NAME = 'aqpgkecluster'
         LOCATION = 'us-central1-c'
-        CREDENTIALS_ID = 'CREDENTIALS_ID'
+        // CREDENTIALS_ID = 'CREDENTIALS_ID'
     }
    
     stages {
@@ -35,7 +35,7 @@ pipeline {
                 clusterName: env.CLUSTER_NAME,
                 location: env.LOCATION,
                 manifestPattern: 'deployment.yaml',
-                credentialsId: env.CREDENTIALS_ID,
+                credentialsId: 'CREDENTIALS_ID',
                 verifyDeployments: true])
             }
         }
