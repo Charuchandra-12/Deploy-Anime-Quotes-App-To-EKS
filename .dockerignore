@@ -8,3 +8,4 @@ deployment.yaml
 LICENSE
 .github/
 Jenkinsfile
+Jenkins_Terraform/

@@ -1,1 +1,4 @@
 node_modules/
+Jenkins_Terraform/.terraform
+Jenkins_Terraform/.terraform.lock.hcl
+Jenkins_Terraform/ssh-key.pem
