@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: anime-quotes-app-deployment
 spec:
-  replicas: 2
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: anime-quotes-app
@@ -14,7 +19,8 @@ spec:
     spec:
       containers:
         - name: anime-quotes-app-container
-          image: chinmaykubal/animequotesapp:latest
+          image: chinmaykubal/animequotesapp:tagversion
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
 ---

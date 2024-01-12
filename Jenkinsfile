@@ -15,7 +15,7 @@ pipeline {
         }
         stage('build docker image'){
             steps{
-                sh "docker build -t chinmaykubal/animequotesapp:latest ."                
+                sh "docker build -t chinmaykubal/animequotesapp:${env.BUILD_ID} ."                
             }
         }
         stage('push docker image to dockerhub'){
@@ -23,12 +23,13 @@ pipeline {
                 withCredentials([string(credentialsId: 'DOCKER_PASS', variable: 'docker_pass')]) {
                     sh "docker login -u chinmaykubal -p ${docker_pass}"
                 }
-                sh "docker push chinmaykubal/animequotesapp:latest"
+                sh "docker push chinmaykubal/animequotesapp:${env.BUILD_ID}"
             }
             
         }
         stage('Deploy to GKE') {
             steps{
+                sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deployment.yaml"
                 step([
                 $class: 'KubernetesEngineBuilder',
                 projectId: env.PROJECT_ID,
