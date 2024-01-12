@@ -7,3 +7,4 @@ README.md
 deployment.yaml
 LICENSE
 .github/
+Jenkinsfile
